@@ -1,0 +1,14 @@
+.walletwrapper {
+  width: 40%;
+  height: 35%;
+  top: 40%;
+  position: absolute;
+  background-color: aliceblue;
+  border-radius: 30px;
+
+  .wallet-close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}

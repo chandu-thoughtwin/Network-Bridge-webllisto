@@ -18,11 +18,11 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('@truffle/hdwallet-provider')
+const infuraKey = '43aac88c007b4aa8bcc84aeb859462ca'
 
+const fs = require('fs')
+const mnemonic = fs.readFileSync('.secret').toString().trim()
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -65,6 +65,25 @@ module.exports = {
     // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
     // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
+    rinkeby: {
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          `https://rinkeby.infura.io/v3/${infuraKey}`,
+        ),
+      network_id: 4,
+      gasPrice: 10e9,
+      skipDryRun: true,
+    },
+    // bscTestnet: {
+    //   provider: () =>
+    //     new HDWalletProvider(
+    //       mnemonic,
+    //       'https://data-seed-prebsc-1-s1.binance.org:8545',
+    //     ),
+    //   network_id: 97,
+    //   skipDryRun: true,
+    // },
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
@@ -81,7 +100,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: '0.8.0', // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -90,7 +109,7 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
+    },
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
@@ -100,6 +119,6 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
 
   db: {
-    enabled: false
-  }
-};
+    enabled: false,
+  },
+}

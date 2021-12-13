@@ -1,0 +1,33 @@
+.formwrapper {
+  width: 60%;
+  height: 80vh;
+  background-color: aliceblue;
+  border-radius: 30px;
+  .transferoption {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .detailswrapper {
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .inputbox {
+      border-radius: 25px !important;
+    }
+  }
+
+  @media (min-width: 300px) {
+    width: 100%;
+    height: 100vh;
+  }
+  @media (min-width: 600px) {
+    width: 60%;
+    height: 80vh;
+  }
+}
