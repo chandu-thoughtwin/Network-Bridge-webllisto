@@ -36,11 +36,11 @@ async function ApporoveToSepend() {
 }
 
 async function genrateSign() {
-  let amount
-  let nonce
-  let sender
-  let fromToken
-  let toToken
+  let amount=10000
+  let nonce=1
+  let sender="0xab6dcf7a634c6049f2248b82d70b3c3edae52730"
+  let fromToken="0xd5Fb900Df8D16aE8BD7306eA61323f3aFC7Aa230"
+  let toToken="0x95EcD00A076651824221E00F4A3E226dC3cD9FE8"
   let data = amount + nonce + sender + fromToken + toToken
 
   let _sign = await web3.eth.accounts.sign(
@@ -48,7 +48,7 @@ async function genrateSign() {
     '6e2d79a5df892d4ad3a876d4910d8f9e756a128ac3c243c054c9a192b1c320e8',
   )
 
-  console.log(_sign.messageHash)
+  console.log(_sign)
 }
 
 // ApporoveToSepend()
